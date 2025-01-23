@@ -4,8 +4,16 @@ project(autoware_utils)
 find_package(autoware_cmake REQUIRED)
 autoware_package()
 
+file(GLOB_RECURSE src_files
+    src/*.cpp
+    src/geometry/*.cpp
+    src/math/*.cpp
+    src/ros/*.cpp
+    src/system/*.cpp
+)
+
 ament_auto_add_library(autoware_utils SHARED
-  src/autoware_utils.cpp
+  ${src_files}
 )
 
 if(BUILD_TESTING)
