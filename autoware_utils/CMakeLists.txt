@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 project(autoware_utils)
 
 find_package(autoware_cmake REQUIRED)
+find_package(Boost REQUIRED)
 autoware_package()
 
 file(GLOB_RECURSE src_files
