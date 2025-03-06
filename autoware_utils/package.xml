@@ -23,6 +23,7 @@
   <depend>autoware_utils_logging</depend>
   <depend>autoware_utils_math</depend>
   <depend>autoware_utils_pcl</depend>
+  <depend>autoware_utils_rclcpp</depend>
   <depend>autoware_utils_system</depend>
   <depend>autoware_utils_uuid</depend>
   <depend>autoware_utils_visualization</depend>
