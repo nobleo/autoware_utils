@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "autoware_utils/geometry/ear_clipping.hpp"
+#include "autoware_utils_geometry/ear_clipping.hpp"
 
 #include <algorithm>
 #include <limits>
 #include <vector>
 
-namespace autoware_utils
+namespace autoware_utils_geometry
 {
 
 void remove_point(const std::size_t p_index, std::vector<LinkedPoint> & points)
@@ -631,4 +631,4 @@ std::vector<Polygon2d> triangulate(const Polygon2d & poly)
   }
   return triangles;
 }
-}  // namespace autoware_utils
+}  // namespace autoware_utils_geometry

@@ -1,4 +1,4 @@
-// Copyright 2025 The Autoware Contributors
+// Copyright 2024 Tier IV, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,16 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef AUTOWARE_UTILS__GEOMETRY__BOOST_GEOMETRY_HPP_
-#define AUTOWARE_UTILS__GEOMETRY__BOOST_GEOMETRY_HPP_
-
-// NOLINTBEGIN(build/namespaces, whitespace/line_length)
-// clang-format off
+#ifndef AUTOWARE_UTILS_GEOMETRY__GJK_2D_HPP_
+#define AUTOWARE_UTILS_GEOMETRY__GJK_2D_HPP_
 
 #include <autoware_utils_geometry/boost_geometry.hpp>
-namespace autoware_utils { using namespace autoware_utils_geometry; }
 
-// clang-format on
-// NOLINTEND
+namespace autoware_utils_geometry::gjk
+{
+/**
+ * @brief Check if 2 convex polygons intersect using the GJK algorithm
+ * @details much faster than boost::geometry::overlaps() but limited to convex polygons
+ */
+bool intersects(const Polygon2d & convex_polygon1, const Polygon2d & convex_polygon2);
+}  // namespace autoware_utils_geometry::gjk
 
-#endif  // AUTOWARE_UTILS__GEOMETRY__BOOST_GEOMETRY_HPP_
+#endif  // AUTOWARE_UTILS_GEOMETRY__GJK_2D_HPP_

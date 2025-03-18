@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "autoware_utils/geometry/random_concave_polygon.hpp"
+#include "autoware_utils_geometry/random_concave_polygon.hpp"
 
-#include "autoware_utils/geometry/boost_geometry.hpp"
+#include "autoware_utils_geometry/boost_geometry.hpp"
 
 #include <boost/geometry/algorithms/convex_hull.hpp>
 #include <boost/geometry/algorithms/correct.hpp>
@@ -29,7 +29,7 @@
 #include <utility>
 #include <vector>
 
-namespace autoware_utils
+namespace autoware_utils_geometry
 {
 namespace
 {
@@ -287,7 +287,7 @@ Polygon2d inward_denting(LinearRing2d & ring)
 }  // namespace
 
 /// @brief checks if a polygon is convex
-bool is_convex(const autoware_utils::Polygon2d & polygon)
+bool is_convex(const autoware_utils_geometry::Polygon2d & polygon)
 {
   const auto & outer_ring = polygon.outer();
   size_t num_points = outer_ring.size();
@@ -324,9 +324,10 @@ bool is_convex(const autoware_utils::Polygon2d & polygon)
 /// @brief checks for collisions between two vectors of convex polygons using a specified collision
 /// detection algorithm
 bool test_intersection(
-  const std::vector<autoware_utils::Polygon2d> & polygons1,
-  const std::vector<autoware_utils::Polygon2d> & polygons2,
-  const std::function<bool(const autoware_utils::Polygon2d &, const autoware_utils::Polygon2d &)> &
+  const std::vector<autoware_utils_geometry::Polygon2d> & polygons1,
+  const std::vector<autoware_utils_geometry::Polygon2d> & polygons2,
+  const std::function<
+    bool(const autoware_utils_geometry::Polygon2d &, const autoware_utils_geometry::Polygon2d &)> &
     intersection_func)
 {
   for (const auto & poly1 : polygons1) {
@@ -404,4 +405,4 @@ std::optional<Polygon2d> random_concave_polygon(const size_t vertices, const dou
   }
   return poly;
 }
-}  // namespace autoware_utils
+}  // namespace autoware_utils_geometry
