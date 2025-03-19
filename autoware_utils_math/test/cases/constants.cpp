@@ -12,4 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "autoware_utils/autoware_utils.hpp"
+#include "autoware_utils_math/constants.hpp"
+
+#include <gtest/gtest.h>
+
+TEST(constants, pi)  // NOLINT for gtest
+{
+  using autoware_utils_math::pi;
+
+  EXPECT_DOUBLE_EQ(pi, 3.14159265358979323846);
+}
+
+TEST(constants, gravity)  // NOLINT for gtest
+{
+  using autoware_utils_math::gravity;
+
+  EXPECT_DOUBLE_EQ(gravity, 9.80665);
+}
