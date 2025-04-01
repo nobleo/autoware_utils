@@ -20,6 +20,7 @@
 #include <boost/geometry/algorithms/correct.hpp>
 #include <boost/geometry/algorithms/intersects.hpp>
 #include <boost/geometry/algorithms/is_valid.hpp>
+#include <boost/version.hpp>
 
 #include <algorithm>
 #include <limits>
@@ -27,8 +28,7 @@
 #include <random>
 #include <utility>
 #include <vector>
-
-#if __has_include(<boost/geometry/strategies/agnostic/hull_graham_andrew.hpp>)  // Until Humble
+#if BOOST_VERSION < 107600  // Header removed in version 1.76.0 (Humble)
 #include <boost/geometry/strategies/agnostic/hull_graham_andrew.hpp>
 #endif
 
@@ -259,7 +259,7 @@ Polygon2d inward_denting(LinearRing2d & ring)
 {
   LinearRing2d convex_ring;
   std::list<Point2d> q;
-#if __has_include(<boost/geometry/strategies/agnostic/hull_graham_andrew.hpp>)  // Humble
+#if BOOST_VERSION < 107600  // Humble
   boost::geometry::strategy::convex_hull::graham_andrew<LinearRing2d, Point2d> strategy;
   boost::geometry::convex_hull(ring, convex_ring, strategy);
 #else  // Jazzy+
