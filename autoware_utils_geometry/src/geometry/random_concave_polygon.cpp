@@ -28,7 +28,7 @@
 #include <utility>
 #include <vector>
 
-#if __has_include(<boost/geometry/strategies/agnostic/hull_graham_andrew.hpp>)
+#if __has_include(<boost/geometry/strategies/agnostic/hull_graham_andrew.hpp>)  // Until Humble
 #include <boost/geometry/strategies/agnostic/hull_graham_andrew.hpp>
 #endif
 
@@ -259,10 +259,10 @@ Polygon2d inward_denting(LinearRing2d & ring)
 {
   LinearRing2d convex_ring;
   std::list<Point2d> q;
-#if __has_include(<boost/geometry/strategies/agnostic/hull_graham_andrew.hpp>)
+#if __has_include(<boost/geometry/strategies/agnostic/hull_graham_andrew.hpp>)  // Humble
   boost::geometry::strategy::convex_hull::graham_andrew<LinearRing2d, Point2d> strategy;
   boost::geometry::convex_hull(ring, convex_ring, strategy);
-#else
+#else  // Jazzy+
   boost::geometry::convex_hull(ring, convex_ring);
 #endif
   PolygonWithEdges polygon_with_edges;
